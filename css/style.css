@@ -634,10 +634,11 @@ main {
     padding: 0.35rem;
     cursor: pointer;
     border-radius: 6px;
+    color: var(--text-color);
 }
 
 .icon-btn:hover {
-    background: rgba(0, 0, 0, 0.04);
+    background: var(--hover-bg);
 }
 
 [data-feather] {
@@ -648,7 +649,16 @@ main {
     stroke-linecap: round;
     stroke-linejoin: round;
     fill: none;
-    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+/* Dark theme icon styles */
+[data-theme="dark"] #search-btn i,
+[data-theme="dark"] #cart-btn i,
+[data-theme="dark"] #menu-btn i,
+[data-theme="dark"] #theme-toggle i {
+    color: var(--primary-contrast);
+    stroke: var(--primary-contrast);
 }
 
 .site-footer {
@@ -673,11 +683,12 @@ main {
         top: 0;
         height: 100vh;
         width: 260px;
-        background: #fff;
+        background: var(--header-bg);
+        color: var(--text-color);
         /* shadow coming from the left since panel is on the right */
         box-shadow: -2px 0 12px rgba(0, 0, 0, 0.08);
         transform: translateX(100%);
-        transition: transform 250ms ease;
+        transition: transform 250ms ease, background-color 0.3s ease, color 0.3s ease;
         padding: 2rem 1rem;
         z-index: 1001;
     }
@@ -698,5 +709,16 @@ main {
         background: rgba(0, 0, 0, 0.35);
         z-index: 1000;
         opacity: 1;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Dark theme styles for mobile nav */
+    [data-theme="dark"] .main-nav {
+        background: var(--header-bg);
+        box-shadow: -2px 0 12px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] .nav-overlay {
+        background: rgba(0, 0, 0, 0.6);
     }
 }
