@@ -1,2 +1,0 @@
-# MonoVibe-Web
-Web Standar
